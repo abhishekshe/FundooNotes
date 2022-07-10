@@ -9,6 +9,7 @@ namespace ReposatoryLayer.Interface
     public interface IUserRL
     {
         public void AddUser(UsersModel user);
-     
+        public List<UserResponseModel> GetAllUsers();
+
     }
 }
