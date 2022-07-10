@@ -9,6 +9,6 @@ namespace BusinessLayer.Interface
     public interface IUserBL
     {
         public void AddUser(UsersModel users);
-        
+        List<UserResponseModel> GetAllUsers();
     }
 }

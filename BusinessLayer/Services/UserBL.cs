@@ -26,8 +26,10 @@ namespace BusinessLayer.Services
                 throw ex;
             }
         }
-        
 
-
+        public List<UserResponseModel> GetAllUsers()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
