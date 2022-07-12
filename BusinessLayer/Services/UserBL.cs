@@ -29,7 +29,26 @@ namespace BusinessLayer.Services
 
         public List<UserResponseModel> GetAllUsers()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return this.userRL.GetAllUsers();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string LoginUser(LoginUserModel loginUser)
+        {
+            try
+            {
+                return this.userRL.LoginUser(loginUser);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
