@@ -11,5 +11,7 @@ namespace ReposatoryLayer.Interface
         public void AddUser(UsersModel user);
         public List<UserResponseModel> GetAllUsers();
 
+        public string LoginUser(LoginUserModel loginUser);
+
     }
 }
