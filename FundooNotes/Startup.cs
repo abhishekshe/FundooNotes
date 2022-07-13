@@ -30,7 +30,7 @@ namespace FundooNotes
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -55,7 +55,7 @@ namespace FundooNotes
             services.AddSwaggerGen(
                 setup =>
                 {
-                    // Include 'SecurityScheme' to use JWT Authentication
+                    
                     var jwtSecurityScheme = new OpenApiSecurityScheme
                     {
                         Scheme = "bearer",
