@@ -12,6 +12,6 @@ namespace ReposatoryLayer.Interface
         public List<UserResponseModel> GetAllUsers();
 
         public string LoginUser(LoginUserModel loginUser);
-
+        public bool ForgetPasswordUser(string email);
     }
 }
