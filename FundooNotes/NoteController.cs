@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Interface;
 using DatabaseLayer.Note;
+using DatabaseLayer.NoteModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -40,6 +41,32 @@ namespace FundoNote.Controllers
                 throw ex;
             }
         }
+
+        [Authorize]
+        [HttpPut("UpdateNote/{id}")]
+        public async Task<IActionResult> UpdateNote(int id, UpdateNoteModel noteModel)
+        {
+            if (noteModel == null)
+            {
+                return BadRequest("Note is null.");
+            }
+            try
+            {
+                var userId = User.Claims.FirstOrDefault(x => x.Type.ToString().Equals("userId", StringComparison.InvariantCultureIgnoreCase));
+                int UserId = Int32.Parse(userId.Value);
+                await this.noteBL.UpdateNote(UserId, id, noteModel);
+                return Ok(new { success = true, Message = "Update Successfully" });
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == "Note Doesn't Exist")
+                {
+                    return BadRequest("Note Does not Exist");
+                }
+                return NotFound(ex.Message);
+            }
+        }
+
 
     }
 }
